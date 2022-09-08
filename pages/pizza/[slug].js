@@ -4,9 +4,23 @@ import { client, urlFor } from '../../lib/client'
 import styles from '../../styles/Pizza.module.css'
 import {BiRightArrow} from 'react-icons/bi'
 import {BiLeftArrow} from 'react-icons/bi'
+import { useState } from 'react'
 
 export default function Pizza ({pizza}) {
     const src = urlFor(pizza.image).url()
+
+    const [size, setSize] = useState(0)
+    const [quantity, setQuantity] = useState(1)
+    
+    const handleQuantity = (type) => {
+        type === 'inc' ?
+        setQuantity((prev)=>prev+1) 
+        : quantity === 1 
+        ? null 
+        : setQuantity((prev)=>prev-1) 
+
+
+    }
     return(
         <Layout>
         <div className={styles.container}>
@@ -24,13 +38,19 @@ export default function Pizza ({pizza}) {
         <div className={styles.rightSide}>
         <span>{pizza.name}</span>
         <span>{pizza.details}</span>
-        <span><span className={styles.red}>£</span>{pizza.price[0]}0</span>
+        <span><span className={styles.red}>£</span>{pizza.price[size]}0</span>
 
             <div className={styles.size}>
             <span>Size</span>
             <div className={styles.sizeVariants}>
-                <div>Regular</div>
-                <div>Large</div>      
+                <div 
+                onClick={()=>setSize(0)} 
+                className={size === 0 ? styles.selected : ''}>
+                    Regular</div>
+                <div 
+                onClick={()=>setSize(1)}
+                className={size === 1 ? styles.selected : ''}>
+                    Large</div>      
             </div>
             </div>
         
@@ -38,9 +58,9 @@ export default function Pizza ({pizza}) {
         <div className={styles.quantity}>
             <span>Quantity</span>
             <div className={styles.counter}>
-                <BiLeftArrow className={styles.arrow}/>
-                <span>1</span>
-                <BiRightArrow className={styles.arrow}/>
+                <BiLeftArrow className={styles.arrow} onClick={()=>handleQuantity('dec')}/>
+                <span>{quantity}</span>
+                <BiRightArrow className={styles.arrow} onClick={()=>handleQuantity('inc')}/>
             </div>
         </div>
 

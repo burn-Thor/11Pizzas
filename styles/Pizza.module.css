@@ -79,3 +79,8 @@
 .red{
     color:var(--themeRed)
 }
+.selected{
+    color:white;
+    background-color: var(--themeRed);
+    cursor: pointer;
+}
