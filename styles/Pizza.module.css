@@ -1,0 +1,81 @@
+.container{
+    display:flex;
+    padding:2rem;
+    gap:5rem;
+    margin-top:3rem;
+}
+
+.imageWrapper{
+    position: relative;
+    width: 40%;
+    height: 25rem;
+    overflow: hidden;
+    border-radius: 2rem;
+}
+
+.imageWrapper>span>img:hover{
+    transform: scale(1.1)
+}
+
+.rightSide{
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    font-size: 1.7rem;
+    font-weight: bold;
+    justify-content: space-between;
+}
+.rightSide>:nth-child(2){
+    font-size: 1rem;
+    font-weight: 300;
+    color: var(--gray);    
+}
+.size{
+    display: flex;
+    gap: 3rem;
+    font-weight: 600;
+    font-size: 1.5rem;
+}
+.sizeVariants{
+    display: flex;
+    gap: 0.6rem;
+    font-weight: 300;
+    color: var(--themeRed);
+    font-size: 1.2rem;
+}
+.sizeVariants>div{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.3rem 1.5rem;
+    border: 2px solid var(--themeRed);
+    border-radius: 1.2rem;
+}
+.sizeVariants>div:hover{
+    color:white;
+    background-color: var(--themeRed);
+    cursor: pointer;
+}
+
+.quantity{
+    display: flex;
+    font-size: 1.6rem;
+    font-weight: 600;
+    gap: 3rem;
+}
+.counter{
+    display: flex;
+    gap: 1rem;
+    
+}
+.arrow{
+    color: var(--themeRed);
+}
+.btn{
+    font-weight: normal;
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+}
+.red{
+    color:var(--themeRed)
+}

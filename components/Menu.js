@@ -4,7 +4,7 @@ import { urlFor } from '../lib/client'
 import Link from 'next/link'
 
 export default function Menu({pizzas}) {
-    console.log(pizzas)
+    
     return(
     <div className={styles.container}>
             <div className={styles.heading}>
