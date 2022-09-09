@@ -5,6 +5,8 @@ import styles from '../../styles/Pizza.module.css'
 import {BiRightArrow} from 'react-icons/bi'
 import {BiLeftArrow} from 'react-icons/bi'
 import { useState } from 'react'
+import { useStore } from '../../store/store'
+import toast, {Toaster} from 'react-hot-toast'
 
 export default function Pizza ({pizza}) {
     const src = urlFor(pizza.image).url()
@@ -18,8 +20,11 @@ export default function Pizza ({pizza}) {
         : quantity === 1 
         ? null 
         : setQuantity((prev)=>prev-1) 
-
-
+    }
+    const addPizza = useStore((state)=>state.addPizza)
+    const addToCart=()=>{
+        addPizza({...pizza, price: pizza.price[size], quantity: quantity, size: size})
+        toast.success("Added to Cart")
     }
     return(
         <Layout>
@@ -64,7 +69,8 @@ export default function Pizza ({pizza}) {
             </div>
         </div>
 
-        <div className={`btn ${styles.btn}`}>Add to Cart</div>
+        <div className={`btn ${styles.btn}`} onClick={addToCart}>Add to Cart</div>
+        <Toaster/>
             
         </div>
 
