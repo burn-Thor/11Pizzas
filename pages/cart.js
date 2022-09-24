@@ -24,7 +24,7 @@ export default function Cart () {
                             cartData.pizzas.map((pizza, i) => {
                                 
                                 const src = urlFor(pizza.image).url()
-                                
+
                                 return(
                                 <tr key={i}>
                                     <td>
